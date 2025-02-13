@@ -126,7 +126,7 @@ nav .navbar li a {
 
 main {
     flex: 3;
-    margin-right: 2rem;
+    
 }
 
 aside {
@@ -150,7 +150,7 @@ h2 {
     background-color: #fff;
     margin: 1rem;
     padding: 1rem;
-    width: calc(27% - 2rem);
+    width: calc(25% - 2rem);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
