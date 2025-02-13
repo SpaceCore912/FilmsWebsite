@@ -1,0 +1,292 @@
+/* Base styles for desktop (default) */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+#title:visited{
+    color:white
+}
+#title:link{
+    color:white;
+    text-decoration:none;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+/* Film list */
+.film-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.film {
+    background-color: #fff;
+    margin: 1rem;
+    padding: 1rem;
+    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Sidebar (Categories) */
+aside {
+    flex: 1;
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+/* Header and Footer */
+header, footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Media Query for Tablets and Small Screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .film {
+        width: 100%;
+    }
+
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar li {
+        margin-bottom: 1rem;
+    }
+    html {
+        font-size: 12px;
+    }
+    
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+
+.header-container {
+    margin:0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+}
+
+nav .navbar {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+nav .navbar li {
+    margin: 0 1rem;
+}
+
+nav .navbar li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+main {
+    flex: 3;
+    margin-right: 2rem;
+}
+
+aside {
+    flex: 1;
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.film-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.film {
+    background-color: #fff;
+    margin: 1rem;
+    padding: 1rem;
+    width: calc(27% - 2rem);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.film img {
+    width: 100%;
+    height: auto;
+}
+
+.film h3 {
+    margin: 1rem 0 0.5rem;
+}
+
+.film p {
+    margin: 0 0 1rem;
+}
+
+.film a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.categories {
+    list-style-type: none;
+    padding: 0;
+}
+
+.categories li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.categories li:hover {
+    background-color: #f4f4f4;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute; /* Position right below the user image */
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    padding: 10px;
+    border-radius: 5px;
+}
+/* Show dropdown on hover */
+.profile-container:hover  .dropdown-content {
+    display: block;
+    
+}
+
+/* Dropdown items styling */
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+nav {
+    flex-grow: 1; /* Allow nav to take available space */
+    text-align: center; /* Center the navigation items */
+}
+
+nav ul {
+    list-style: none;
+    display: inline-flex; /* Inline-flex to center the items */
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 15px;
+    display: block;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+.user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+--------------------------------------------------
+header {
+    background-color: #333;
+    color: #fff;
+    
+    padding: 10px 20px;
+    position: relative;
+    height: 60px;
+    }
+
+
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
+.like-button, .dislike-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

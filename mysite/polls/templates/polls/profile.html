@@ -1,0 +1,133 @@
+{%extends "polls/base.html"%}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced User Profile</title>
+    {%block extrahead%}
+    <link rel="stylesheet" href="{% static 'polls/css/profile3.css' %}">
+    {%endblock%}
+</head>
+{%block content%}
+<body>
+    <div class="profile-hero">
+        <div class="overlay"></div>
+        <img src="hero-background.jpg" alt="Hero Background" class="hero-bg">
+    </div>
+    <div class="profile-container-profile">
+        <div class="profile-photo">
+            <img src="profile.jpg" alt="User Photo">
+        </div>
+        <div class="profile-details">
+            <h1 class="username">{{profile.name}}</h1>
+            <p class="bio">Passionate traveler, photographer, and tech enthusiast. Always exploring new places and ideas.</p>
+            <div class="tags">
+                <span class="tag">Photography</span>
+                <span class="tag">Travel</span>
+                <span class="tag">Technology</span>
+                <span class="tag">Blogging</span>
+            </div>
+            <div class="additional-info">
+                <p><strong>Language:</strong> English, Spanish</p>
+                <p><strong>Location:</strong> New York, USA</p>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link"><img src="icons/twitter.svg" alt="Twitter"></a>
+                <a href="#" class="social-link"><img src="icons/instagram.svg" alt="Instagram"></a>
+                <a href="#" class="social-link"><img src="icons/linkedin.svg" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-section">
+    <div class="section-header">
+        <h2>Your Collections</h2>
+    </div>
+    <div class="collections-grid">
+        <div class="collection-item" id="item1">
+            <h3>Watchlists</h3>
+            <p>Manage your watchlists and keep track of films you plan to watch.</p>
+        </div>
+        <div class="collection-item" id="item2">
+            <h3>Lists</h3>
+            <p>Create and share lists of your favorite films, directors, and more.</p>
+        </div>
+        <div class="collection-item" id="item3">
+            <h3>Liked Films</h3>
+            <p>View and manage the films you've liked over time.</p>
+        </div>
+        <div class="collection-item" id="item4">
+            <h3>Groups</h3>
+            <p>Join or create groups to discuss and share your favorite films.</p>
+        </div>
+    </div>
+
+
+    <!-- Dropdown Boxes -->
+    <div class="dropdown-box-profile" id="box1">
+        <div class="dropdown-grid-profile">
+            
+            {%for watchlist in watchlists%}
+            {%for film in watchlist.films.all %}
+            {%with "polls/images/"|add:film.name_text|cut:" "|add:".jpg" as filmImage %}
+            <a href="{% url 'polls:watchlist' watchlist.id %}"><div class="grid-item"><img src="{% static filmImage %}" alt="Image 1"></div></a>
+            {%endwith%}
+            {%endfor%}
+            {%endfor%}
+        </div>
+    </div>
+    <div class="dropdown-box-profile" id="box2">
+        <div class="dropdown-grid-profile">
+            <div class="grid-item"><img src="image7.jpg" alt="Image 7"></div>
+            <div class="grid-item"><img src="image8.jpg" alt="Image 8"></div>
+            <div class="grid-item"><img src="image9.jpg" alt="Image 9"></div>
+            <div class="grid-item"><img src="image10.jpg" alt="Image 10"></div>
+            <div class="grid-item"><img src="image11.jpg" alt="Image 11"></div>
+            <div class="grid-item"><img src="image12.jpg" alt="Image 12"></div>
+        </div>
+    </div>
+    <div class="dropdown-box-profile" id="box3">
+        <div class="dropdown-grid-profile">
+            {%for film in liked %}
+            {%with "polls/images/"|add:film.name_text|cut:" "|add:".jpg" as filmImage %}
+            <div class="grid-item"><img src="{% static filmImage %}" alt="Image 1"></div>
+            {%endwith%}
+            {%endfor%}
+    </div>
+    </div>
+    <div class="dropdown-box-profile" id="box4">
+        <div class="dropdown-grid-profile">
+            <div class="grid-item"><img src="image19.jpg" alt="Image 19"></div>
+            <div class="grid-item"><img src="image20.jpg" alt="Image 20"></div>
+            <div class="grid-item"><img src="image21.jpg" alt="Image 21"></div>
+            <div class="grid-item"><img src="image22.jpg" alt="Image 22"></div>
+            <div class="grid-item"><img src="image23.jpg" alt="Image 23"></div>
+            <div class="grid-item"><img src="image24.jpg" alt="Image 24"></div>
+        </div>
+    </div>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const items = document.querySelectorAll('.collection-item');
+const boxes = document.querySelectorAll('.dropdown-box-profile');
+
+items.forEach((item, index) => {
+    item.addEventListener('click', function() {
+        // Hide all boxes
+        boxes.forEach(box => {
+            box.classList.remove('show');
+        });
+        // Show the corresponding box
+        boxes[index].classList.toggle('show');
+    });
+});
+});
+</script>
+{%endblock%}
+</body>
+</html>

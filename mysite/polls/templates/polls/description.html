@@ -1,0 +1,116 @@
+{%extends 'polls/base.html'%}
+{%load static%}
+
+
+    {%block extrahead%}
+    <link rel="stylesheet" href="{% static 'polls/css/description7.css' %}">
+
+    {%endblock%}
+    
+
+        {%block content%}
+    <main>
+        <div class="content">
+            <section class="main-content">
+                <div class="movie-details">
+                    
+
+                    
+                    <img src="{{ film.imageUrl }}" alt="Movie Poster" class="movie-poster" width="200" >
+                    
+                    <div class="like-dislike-buttons">
+                        
+                        <button class="like-button" id ="likeButton">
+                            
+                            <span class="icon">❤️</span>
+                            <span class="text" id="likeText">Like</span>
+                            <!--<span> {{film.likes}}</span>-->
+                        </button>
+
+                        <button class="dislike-button">
+                            <span class="icon">👎</span>
+                            <span class="text">Dislike</span>
+                        </button>
+                    </div>
+                    <div class="auction-buttons">
+                        <button class="action-button">Add to Favorites</button>
+                        <button class="action-button watchlist" id="watchlist">Add to Watchlist</button>
+                        <button class="action-button">Review</button>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <h2>{{film.name_text}}</h2>
+                    <p><strong>Release Year: </strong>{{film.pub_date}}</p>
+                    <p><strong>Director:</strong> {{film.director}}</p>
+                    <p><strong>Country:</strong> USA</p>
+                    <p><strong>Producers:</strong> Jane Smith, Michael Johnson</p>
+                    <p><strong>Length:</strong> 120 minutes</p>
+                    <p><strong>Genres:</strong> Action, Adventure</p>
+                    <p><strong>Cast:</strong> Actor 1, Actor 2, Actor 3</p>
+                    <p><strong>Synopsis:</strong> A brief description of the movie's plot goes here.</p>
+                </div>
+                <div class="additional-actions">
+                    <button class="additional-action-button">Share Film</button>
+                    <button class="additional-action-button">Find List</button>
+                    <button class="additional-action-button">Join Group</button>
+                </div>
+                
+            </section>
+            <section class="actions"></section>
+        </div>
+        <div class="additional-content">
+            <section class="video-column">
+                <div class="video-item">
+                    <img src="thumbnail1.jpg" alt="Video Thumbnail">
+                    <h3>Video Title 1</h3>
+                    <p>Short description of the first video.</p>
+                </div>
+                <div class="video-item">
+                    <img src="thumbnail2.jpg" alt="Video Thumbnail">
+                    <h3>Video Title 2</h3>
+                    <p>Short description of the second video.</p>
+                </div>
+                <!-- Add more video items as needed -->
+            </section>
+        </div>
+    </main>
+    
+    {{addedToW|json_script:"addedW"}}
+    {{liked|json_script:"liked" }}
+    {{ film_likes|json_script:"likes" }}
+    {{ film.id|json_script:"film" }}
+    <script>
+        
+        //document.getElementById('likeButton').addEventListener('click', function() {
+        //    this.classList.toggle('clicked');
+//});
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId());
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail());
+        }
+        
+        
+        let liked =JSON.parse(document.getElementById('liked').textContent)
+        console.log(liked)
+        let addedW=JSON.parse(document.getElementById("addedW").textContent)
+        
+        if (liked) {
+            v= document.getElementById('likeButton')
+            v.classList.toggle("clicked")
+            w= document.getElementById('likeText')
+            w.textContent="Liked" }
+        if(addedW){
+            q=document.getElementById("watchlist")
+            q.classList.toggle("clicked")
+
+        } 
+    </script>
+
+{%endblock%}
+</body>
+</html>
+
+

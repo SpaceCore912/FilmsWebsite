@@ -1,0 +1,32 @@
+{%extends "polls/base.html"%}
+{%load static%}
+
+{%block extrahead%}
+<link rel="stylesheet" href="{% static  'polls/css/signup.css' %}">
+{%endblock%}
+{%block content%}
+<div class="signup-container">
+        <h2>Log In</h2>
+        <form id="loginForm" action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+        
+  
+            {% for field in form %}
+    <div class="fieldWrapper" >
+        {{ field.errors }}
+    <div class="form-group">
+        {{ field.label_tag }}
+         {{ field }}
+    </div>
+    
+    </div>
+{% endfor %}
+            
+        <button type="submit" class="login-button">Log In</button>
+
+        </form>
+        <p>Don't have an account? <a href="{% url 'accounts:signup' %}">Sign up</a></p>
+    </div>
+
+{%endblock%}

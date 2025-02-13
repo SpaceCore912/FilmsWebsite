@@ -1,0 +1,329 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    position: relative;
+    
+}
+
+.movieposter .img{
+    height:40%
+}
+
+a:visited{
+    color:white
+}
+a:link{
+    color:white;
+    text-decoration:none;
+}
+
+nav {
+    flex-grow: 1; /* Allow nav to take available space */
+    text-align: center; /* Center the navigation items */
+}
+
+nav ul {
+    list-style: none;
+    display: inline-flex; /* Inline-flex to center the items */
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+.navbar {
+    background-color: #333;
+    padding: 10px;
+}
+
+
+.nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item a {
+    color:white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+}
+
+.nav-item a:hover {
+    background-color: #575757;
+}
+
+
+.dropdown-button {
+    cursor: pointer;
+}
+
+.dropdown-content-wide {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 50vw; /* Covers half the screen width */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.dropdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four columns */
+    gap: 10px;
+}
+
+.dropdown-content-wide a {
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content-wide a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content-wide {
+    display: block;
+    top: 100%; /* Position below the navbar */
+    left: 0;
+}
+
+
+
+
+
+.g-signin2 {
+    margin-left: 10px;
+}
+
+/* Ensure header height to avoid overlap */
+
+
+.main-content {
+    display: flex;
+    justify-content: space-between; /* Adjust the spacing between movie details and actions */
+    margin-bottom: 20px;
+}
+
+.movie-details {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.movie-poster {
+    margin-top:20px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.like-dislike-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.like-button, .dislike-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.like-button.clicked {
+    background-color: #4caf50; /* Change to green when clicked */
+}
+
+
+.like-button .icon, .dislike-button .icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.like-button:hover {
+    background-color: #ff4a4a;
+}
+
+.like-button:active {
+    background-color: #ff2a2a;
+}
+
+.dislike-button {
+    background-color: #b0bec5;
+}
+
+.dislike-button:hover {
+    background-color: #90a4ae;
+}
+
+.dislike-button:active {
+    background-color: #78909c;
+}
+
+.auction-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px; /* Adjust margin as needed */
+}
+.watchlist.clicked{
+    background-color: #4caf50
+}
+
+.movie-info {
+    flex: 2;
+}
+
+.additional-actions {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.actions-container {
+    display: none; /* Hide the original auction buttons section */
+}
+
+.action-button, .additional-action-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover, .additional-action-button:hover {
+    background-color: #555;
+}
+
+.action-button:active, .additional-action-button:active {
+    background-color: #777;
+}
+
+.video-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.video-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.video-item img {
+    width: 100%;
+    height: auto;
+}
+
+.video-item h3 {
+    margin: 10px;
+}
+
+.video-item p {
+    margin: 0 10px 10px;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+}
+/* Profile container styles */
+.profile-container {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+   
+}
+
+/* User image styles */
+.user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Dropdown content initially hidden */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 50%; /* Position right below the user image */
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Show dropdown on hover */
+.profile-container:hover  .dropdown-content {
+    display: block;
+    
+}
+
+/* Dropdown items styling */
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}

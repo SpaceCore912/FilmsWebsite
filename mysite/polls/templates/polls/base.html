@@ -1,0 +1,135 @@
+
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'polls/css/styles2.css' %}">
+
+    {% block extrahead %}{% endblock %}
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        .navbar > li {
+            position: relative;
+            margin: 0 15px;
+        }
+
+        .navbar > li > a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border: 1px solid #ccc;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown > div {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .dropdown > div:hover {
+            background-color: #f0f0f0;
+        }
+
+        .navbar > li:hover .dropdown {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-container">
+        <div class="header-container">
+            <h1><a href="{% url 'polls:index'%}" id ='title'>Film Blog</a></h1>
+            <nav>
+                <ul class="navbar">
+                    <li><a href="{% url 'polls:index'%}">Home</a></li>
+                    <li><a href="{% url 'polls:popular'%}">Popular</a>
+                    <li><a href="{% url 'polls:classic'%}">Classic</a>
+                    <li><a href="{% url 'polls:trend'%}">Trend</a>
+                    <li><a href="{% url 'polls:unseen'%}">Unseen</a></li>
+                    
+                    <li><a href="{% url 'polls:about'%}">About</a></li>
+                </ul>
+            </nav>
+            <div class="profile-container">
+                    {%if user.is_authenticated%}
+                    <button class="user-menu">
+                        {%with "polls/images/"|add:user.username|cut:" "|add:".jpg" as userImage %}
+                        <img src="{% static  userImage %}" alt="User Image" class="user-image">
+                        {%endwith%}
+                    </button>
+    
+                    {%else %}
+                    <a href="{%url 'login' %}" id='title' >sign in</a>
+                    
+                    {%endif%}
+                    <div class="dropdown-content">
+                        {%if user.id%}
+                        
+                        <a href="{%url 'profile' user.username %}">{{user.username}}</a>
+                        {%else%}
+                        <a href="{%url 'login' %}">sign in</a>
+                        {%endif%}
+                        
+
+                        <a href="#">Films</a>
+                        <a href="#">Series</a>
+                        <a href="#">Watchlist</a>
+                        <a>
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Log Out</button>
+                          </form>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            
+    </header>
+    <main>
+    {%block content%}
+    {%endblock%}
+</main>
+    <footer>
+       <script src="{%static 'polls/script/filter1.js'%} "></script>
+    <script type="text/javascript" src="{% static 'jquery-3.7.1.min.js' %}">
+    </script> 
+    <script type="text/javascript" src="{% static 'polls/script/jquery2.js' %}">
+    </script> 
+    <script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>    <script>
+        document.getElementById('search-button').addEventListener('click', function(){
+            this.classList.toggle('clicked')
+
+        })
+    
+    </script>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,68 @@
+{%extends 'polls/base.html'%}
+{% block extrahead%}
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .mycontainer {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 1.1em;
+        }
+        .pagination {
+            margin-top: 20px;
+        }
+        .pagination a {
+            text-decoration: none;
+            padding: 8px 16px;
+            background-color: #0073e6;
+            color: white;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+        .pagination a:hover {
+            background-color: #005bb5;
+        }
+    </style>
+    {%endblock%}
+</head>
+<body>
+{%block content%}
+    <div class="mycontainer">
+        <h1>About Me</h1>
+        <p>I have always had endless and ever-changing passions, but some of the most important ones at the moment are: football, cars, cinema, and programming. This project mainly focuses on the latter two.</p>
+        <!DOCTYPE html>
+
+    <h2>About the Project</h2>
+    <p>I often found it difficult choosing a movie to watch, sometimes spending up to 30 minutes to 1 hour searching for a movie. I would usually go through the suggested movies of popular film rating platforms looking for a highly-rated film, only to find out that I didn't like the movie plot after watching the trailer.</p>
+    <p>After looking around online, I found that many others have the same problem. They argue that the rating most often measures the popularity of the movie rather than its quality.</p>
+    <p>I wanted to create a more effective movie selection system, not based on ratings, but categorized in different groups:</p>
+    <ul>
+        <li><strong>Populars:</strong> Movies we watch because they are famous or feature well-known actors or directors.</li>
+        <li><strong>Classics:</strong> Movies that have made history in some way or another.</li>
+        <li><strong>Trends:</strong> The latest published movies.</li>
+        <li><strong>Casuals:</strong> Movies that you might come across by chance, on social media or other parts of the web.</li>
+    </ul>
+    <p>My focus is on the "Casuals" category, as I assume you have already watched movies in the other categories.</p>
+    <p>This project aims to facilitate your movie-search and encourage you to watch more films.</p>
+
+    <div class="notice">
+        <p><strong>Important Notice:</strong> These films will probably reflect my taste and my current memory of watched movies. Feel free to suggest more movies that you think would fit nicely into one of the categories mentioned above. You can email me at <a href="mailto:spacecore912@gmail.com" class="email-link">spacecore912@gmail.com</a>.</p>
+    </div>
+
+
+{%endblock%}
+</body>
+</html>

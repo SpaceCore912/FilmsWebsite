@@ -1,0 +1,75 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Watchlist</title>
+    <link rel="stylesheet" href="{% static 'polls/css/watchlist2.css'%}">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">-->
+</head>
+<body>
+    
+    <header class="navbar">
+        <div class="logo">
+            <h1>MyWatchlist</h1>
+        </div>
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#movies">Movies</a>
+            <a href="#tvshows">TV Shows</a>
+            <a href="#favorites">Favorites</a>
+            <a href="#profile">Profile</a>
+        </nav>
+        <div class="nav-actions">
+            <input type="text" placeholder="Search..." class="search-bar">
+            <a href="#profile" class="profile-icon">
+                <i class="fas fa-user-circle"></i>
+            </a>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="watchlist-container">
+            <h1 class="page-title">My Watchlist</h1>
+            <div class="movie-grid">
+                <!-- Example Movie Item -->
+               {%for film in films%}
+                <div class="movie-item">
+                    <div class="movie-poster-container">
+                        <img src="movie1.jpg" alt="Movie Title" class="movie-poster">
+                        <div class="overlay">
+                            <a href="#" class="watch-trailer"><i class="fas fa-play-circle"></i> Watch Trailer</a>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h2 class="movie-title">{{film.name_text}}</h2>
+                        <p class="movie-genre"><i class="fas fa-film"></i> Action, Adventure</p>
+                        <p class="movie-length"><i class="far fa-clock"></i> 120 min</p>
+                    </div>
+                </div>
+                {%endfor%}
+                <!-- Repeat for more movies -->
+                <div class="movie-item">
+                    <div class="movie-poster-container">
+                        <img src="movie2.jpg" alt="Movie Title" class="movie-poster">
+                        <div class="overlay">
+                            <a href="#" class="watch-trailer"><i class="fas fa-play-circle"></i> Watch Trailer</a>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h2 class="movie-title">Another Movie</h2>
+                        <p class="movie-genre"><i class="fas fa-film"></i> Drama, Thriller</p>
+                        <p class="movie-length"><i class="far fa-clock"></i> 95 min</p>
+                    </div>
+                </div>
+                <!-- Add more movie items as needed -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 MyWatchlist. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,128 @@
+
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Blog</title>
+    <link rel="stylesheet" href="{% static 'polls/css/styles5.css' %}">
+    
+    
+    {% block extrahead %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1><a href="{%url 'polls:index' %}">VideoShare</a></h1>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#">Home</a></li>
+                        <li class="nav-item dropdown">
+                        <a href="#" class="dropdown-button">Services</a>
+                            <div class="dropdown-content-wide">
+                                <div class="dropdown-grid">
+                                    <a href="{%url 'polls:index' %}">Service 1</a>
+                                    <a href="#">Service 2</a>
+                                    <a href="#">Service 3</a>
+                                    <a href="#">Service 4</a>
+                                    <a href="#">Service 5</a>
+                                    <a href="#">Service 6</a>
+                                    <a href="#">Service 7</a>
+                                    <a href="#">Service 8</a>
+                                    <a href="#">Service 9</a>
+                                    <a href="#">Service 10</a>
+                                    <a href="#">Service 11</a>
+                                    <a href="#">Service 12</a>
+                                    <a href="#">Service 13</a>
+                                    <a href="#">Service 14</a>
+                                    <a href="#">Service 15</a>
+                                    <a href="#">Service 16</a>
+                                    <a href="#">Service 17</a>
+                                    <a href="#">Service 18</a>
+                                    <a href="#">Service 19</a>
+                                    <a href="#">Service 20</a>
+                                    <a href="#">Service 21</a>
+                                    <a href="#">Service 22</a>
+                                    <a href="#">Service 23</a>
+                                    <a href="#">Service 24</a>
+                                    <a href="#">Service 25</a>
+                                    <a href="#">Service 26</a>
+                                    <a href="#">Service 27</a>
+                                    <a href="#">Service 28</a>
+                                </div>
+                            </div>
+                        </li>
+                    <li class="nav-item"><a href="#">About</a></li>
+                    <li class="nav-item"><a href="#">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <form auction="{% url 'polls:search' %}" method="post">
+                        {% csrf_token %}
+                        <input type="text" placeholder="Search..." class="search-bar" >
+                    <a href="{%url 'polls:search' %}"><button id="search-button" type="Submit"></button></a>
+
+                </form>
+                    <a href="#profile" class="profile-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                </div>
+                <div class="profile-container">
+                    {%if user.is_authenticated%}
+                    <button class="user-menu">
+                        {%with "polls/images/"|add:user.username|cut:" "|add:".jpg" as userImage %}
+                        <img src="{% static  userImage %}" alt="User Image" class="user-image">
+                        {%endwith%}
+                    </button>
+    
+                    {%else %}
+                    <a href="{%url 'home' %}">sign in</a>
+                    
+                    {%endif%}
+                    <div class="dropdown-content">
+                        {%if user.id%}
+                        
+                        <a href="{%url 'profile' user.username %}">{{user.username}}</a>
+                        {%else%}
+                        <a href="{%url 'home' %}">sign in</a>
+                        {%endif%}
+                        
+
+                        <a href="#">Films</a>
+                        <a href="#">Series</a>
+                        <a href="#">Watchlist</a>
+                        <a>
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Log Out</button>
+                          </form>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </nav>
+            
+    </header>
+    <main>
+    {%block content%}
+    {%endblock%}
+</main>
+
+    <footer>
+        <p>&copy; 2024 Film Blog. All rights reserved.</p>
+    </footer>
+    <script src="{%static 'polls/script/filter1.js'%} "></script>
+    <script type="text/javascript" src="{% static 'jquery-3.7.1.min.js' %}">
+    </script> 
+    <script type="text/javascript" src="{% static 'polls/script/jquery2.js' %}">
+    </script> 
+    <script>
+        document.getElementById('search-button').addEventListener('click', function(){
+            this.classList.toggle('clicked')
+
+        })
+    
+    </script>
+</body>
+</html>

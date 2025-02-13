@@ -1,0 +1,114 @@
+<div class="film" data-category="crime">
+                    <img src="godfather.jpg" alt="The Godfather">
+                    <h3>The Godfather</h3>
+                    <p>A powerful crime drama about a mafia family.</p>
+                    <a href="#">Read more</a>
+                </div>
+                <div class="film" data-category="action">
+                    <img src="dark_knight.jpg" alt="The Dark Knight">
+                    <h3>The Dark Knight</h3>
+                    <p>A gripping tale of the superhero Batman facing the Joker.</p>
+                    <a href="#">Read more</a>
+                </div>
+                <div class="film" data-category="crime">
+                    <img src="pulp_fiction.jpg" alt="Pulp Fiction">
+                    <h3>Pulp Fiction</h3>
+                    <p>An interwoven story of crime and redemption in Los Angeles.</p>
+                    <a href="#">Read more</a>
+                </div>
+                <div class="film" data-category="drama">
+                    <img src="forrest_gump.jpg" alt="Forrest Gump">
+                    <h3>Forrest Gump</h3>
+                    <p>The life story of a simple man with extraordinary experiences.</p>
+                    <a href="#">Read more</a>
+                </div>
+
+
+                <div class="bottom-section">
+        <div class="section-header">
+            <h2>Your Collections</h2>
+        </div>
+        <div class="collections-grid">
+            <div class="collection-item">
+                <h3>Watchlists</h3>
+                <p>Manage your watchlists and keep track of films you plan to watch.</p>
+            </div>
+            <div class="collection-item">
+                <h3>Lists</h3>
+                <p>Create and share lists of your favorite films, directors, and more.</p>
+            </div>
+            <div class="collection-item">
+                <h3>Liked Films</h3>
+                <p>View and manage the films you've liked over time.</p>
+            </div>
+            <div class="collection-item">
+                <h3>Groups</h3>
+                <p>Join or create groups to discuss and share your favorite films.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+    document.querySelector('.collection-item').addEventListener('click', function() {
+        document.querySelector('.dropdown-content').classList.toggle('show');
+    })
+</script>
+    </body>
+
+</html>
+
+
+.bottom-section {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    font-size: 28px;
+    color: #333333;
+    margin: 0;
+}
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.collection-item {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.collection-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.collection-item h3 {
+    font-size: 20px;
+    color: #ff6b6b;
+    margin-bottom: 15px;
+}
+
+.collection-item p {
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.4;
+}
+.dropdown-content{
+    display :none;
+    background-color:red;
+}

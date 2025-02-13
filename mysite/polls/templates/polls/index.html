@@ -1,0 +1,69 @@
+{%extends 'polls/base.html'%}
+{%load static%}
+{%block content%}
+<div class="container">
+        <main>
+            <h2 id="films">Film List</h2>
+            {%if latest_films%}
+            <div class="film-list">
+            
+                
+                
+                {%for film in latest_films%}
+                <div class="film" data-category= '' id ='{{film.name_text}}'>
+                
+                {%for genre in film.genre.all %}
+                    <script>
+                        
+                        
+                        
+                        
+                        mymovie =document.getElementById('{{film.name_text}}')
+                        console.log(mymovie)
+                        console.log(mymovie.getAttribute('data-category'))
+                        mymovie.setAttribute('data-category',mymovie.getAttribute('data-category').concat(' ','{{genre}}',' ' ))
+                    </script>
+
+                     {%endfor%}
+                     <img src="{{ film.imageUrl }}" alt="{{film.name_text}}" height=800px>
+                    
+                        <h3><a href="{%url 'polls:description' film.id %}">{{film.name_text}}</a></h3>
+                        <p>{{film.description|truncatechars:50}}</p>
+                        <a href="#">Read more</a>
+                        <button class="like-button" id ="like">
+                            <span class="icon">❤️</span>
+                            <span class="text">Like</span>
+                        </button>
+                    </div>
+                 {%endfor%}
+                 <script>
+                    mymovie =document.getElementById('The Godfather')
+                        console.log(mymovie)
+                        console.log(mymovie.getAttribute('data-category'))</script>
+                </ul>
+            {%else%}
+                <p>No polls available</p>
+            {%endif%}
+                <!-- Add more films here -->
+            </div>
+            <div>
+            
+            </div>
+        </main>
+        <aside>
+            <h2 id="categories">Categories</h2>
+            <ul class="categories">
+                <li onclick="filterFilms('all')">All</li>
+                <li onclick="filterFilms('comedy')">Comedy</li>
+                <li onclick="filterFilms('action')">Action</li>
+                <li onclick="filterFilms('drama')">Drama</li>
+                <li onclick="filterFilms('thriller')">Thriller</li>
+                <li onclick="filterFilms('horror')">Horror</li>
+                <li onclick="filterFilms('sci-fi')">Science Fiction</li>
+                <li onclick="filterFilms('crime')">Crime</li>
+                <!-- Add more categories here -->
+            </ul>
+        </aside>
+    </div>
+{%endblock%}
+    
