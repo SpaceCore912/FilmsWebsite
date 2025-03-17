@@ -18,12 +18,15 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 2rem;
+    width:80%;
+    margin: 0 auto;
 }
 
 /* Film list */
 .film-list {
-    display: inline-flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .film {
@@ -58,9 +61,8 @@ header, footer {
         flex-direction: column;
     }
 
-    .film {
-        width: 100%;
-    }
+    
+    
 
     .header-container {
         flex-direction: column;
@@ -141,22 +143,20 @@ h2 {
     padding-bottom: 0.5rem;
 }
 
-.film-list {
-    display: flex;
-    flex-wrap: wrap;
-}
+
 
 .film {
     background-color: #fff;
     margin: 1rem;
     padding: 1rem;
-    width: calc(25% - 2rem);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
 }
 
 .film img {
-    width: 100%;
-    height: auto;
+    
+    width:100%;
+    height:auto
 }
 
 .film h3 {

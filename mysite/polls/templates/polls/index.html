@@ -25,7 +25,7 @@
                     </script>
 
                      {%endfor%}
-                     <img src="{{ film.imageUrl }}" alt="{{film.name_text}}" height=800px>
+                     <img src="{{ film.imageUrl }}" alt="{{film.name_text}}">
                     
                         <h3><a href="{%url 'polls:description' film.id %}">{{film.name_text}}</a></h3>
                         <p>{{film.description|truncatechars:50}}</p>
