@@ -25,7 +25,7 @@ import os
 
 urlpatterns = [
     path("", include("polls.urls")),
-    path("admin/", admin.site.urls),
+    path(os.environ.get("UUID"), admin.site.urls),
     path("accounts/",include("django.contrib.auth.urls")),
     path("profile/<user_username>",RedirectView.as_view(pattern_name="polls:profile"),name="profile"),
 
