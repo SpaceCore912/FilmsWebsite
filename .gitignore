@@ -6,3 +6,4 @@ mysite/polls/migrations
 mysite/settings.py
 mysite/mysite
 mysite/__pycache__
+mysyte/.vercel
