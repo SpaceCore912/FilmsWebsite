@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,6 +34,8 @@ CHANNEL_LAYERS={
         "BACKEND":"channels.layers.InMemoryChannelLayer"
     }
 }
+
+SECRET_KEY=os.environ.get("SECRET_KEY")
 
 
 # Application definition
@@ -92,8 +96,7 @@ DATABASES = {
     }
 }
 """
-from dotenv import load_dotenv
-load_dotenv()
+
 
 DATABASES = {
     "default": {
