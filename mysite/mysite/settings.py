@@ -33,6 +33,8 @@ CHANNEL_LAYERS={
     }
 }
 
+SECRET_KEY=os.environ.get("SECRET_KEY")
+
 
 # Application definition
 
